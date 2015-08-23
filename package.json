@@ -1,0 +1,23 @@
+{
+  "name": "doc",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rlbarreto/docRM.git"
+  },
+  "author": "Rafael Lessa Barreto",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rlbarreto/docRM/issues"
+  },
+  "homepage": "https://github.com/rlbarreto/docRM#readme",
+  "dependencies": {
+    "bluebird": "^2.9.34",
+    "express": "^4.13.3"
+  }
+}
