@@ -4,12 +4,13 @@
     var bodyParser = require('body-parser');
     var logger = require('morgan');
 
-    module.exports = function init() {
+    module.exports = function initialize() {
+        return init;
+    };
 
-        return function(app) {
-            app.use(logger('dev'));
-            app.use(bodyParser.json());
+    function init(app) {
+        app.use(logger('dev'));
+        app.use(bodyParser.json());
 
-        };
     };
 })();
