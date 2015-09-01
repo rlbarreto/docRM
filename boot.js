@@ -1,9 +1,7 @@
 (function () {
     'use strict';
 
-
-    let express = require('express');
-
+    const express = require('express');
 
     exports = module.exports = function boot() {
         console.log('executando boot')

@@ -1,8 +1,9 @@
 
 ;(function () {
+    'use strict';
 
-    var bodyParser = require('body-parser');
-    var logger = require('morgan');
+    const bodyParser = require('body-parser');
+    const logger = require('morgan');
 
     module.exports = function initialize() {
         return init;

@@ -21,6 +21,4 @@
 
     exports['@singleton'] = true;
     exports['@require'] = ['express'];
-
-
 })();

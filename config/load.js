@@ -1,9 +1,10 @@
 ;
 (function () {
+    'use strict';
 
-    var glob = require('glob');
-    var fs = require('fs');
-    var path = require('path');
+    const glob = require('glob');
+    const fs = require('fs');
+    const path = require('path');
 
     exports = module.exports = function () {
         return {
@@ -13,7 +14,7 @@
     };
 
     function loadModules(ioc) {
-        var modulesDir = fs.readdirSync('./modules/');
+        let modulesDir = fs.readdirSync('./modules/');
         modulesDir.forEach(function (dir) {
             if (fs.statSync('./modules/' + dir).isDirectory()) {
                 ioc.loader(dir, ioc.node('./modules/' + dir));
@@ -25,7 +26,7 @@
     }
 
     function loadControllers(ioc, app) {
-        var controllersFiles = glob.sync('./modules/**/controller.js');
+        let controllersFiles = glob.sync('./modules/**/controller.js');
         controllersFiles.forEach(function eachControllerFile(controllerFile) {
             ioc.create(path.basename(path.dirname(controllerFile)) + '/' + path.basename(controllerFile, '.js'))(app);
         });

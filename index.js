@@ -3,16 +3,16 @@
 
     console.log('vai começar');
 
-    let ioc = require('./injector');
-    let bootable = require('bootable');
-    let express = require('express');
-    let init = require('./config/init')();
-    let glob = require('glob');
-    let path = require('path');
-    let fs = require('fs');
-    let loader = require('./config/load')();
+    const ioc = require('./injector');
+    const bootable = require('bootable');
+    const express = require('express');
+    const init = require('./config/init')();
+    const glob = require('glob');
+    const path = require('path');
+    const fs = require('fs');
+    const loader = require('./config/load')();
 
-    let app = bootable(express());
+    const app = bootable(express());
 
     app.phase(function (done) {
         init(app);
