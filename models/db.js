@@ -4,14 +4,17 @@
 ;(function () {
     'use strict';
 
-    module.exports = function db(sequelize) {
+    exports = module.exports = function db(sequelize) {
 
         let db = {
             Sequelize : sequelize,
-            sequelize : new sequelize('postgres://doc:doc@localhost:5432/doc'),
+            sequelize : new sequelize('postgres://doc:doc@localhost:5432/doc')
         }
 
         return db;
     };
+
+    exports['@singleton'] = true;
+    exports['@require'] = ['sequelize'];
 
 })();
