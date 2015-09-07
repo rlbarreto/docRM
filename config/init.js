@@ -1,25 +1,20 @@
 
-;(function () {
-    'use strict';
 
-    const bodyParser = require('body-parser');
-    const logger = require('morgan');
+'use strict';
 
-    module.exports = function initialize() {
-        return init;
-    };
+const bodyParser = require('body-parser');
+const logger = require('morgan');
 
-    function init(app) {
+module.exports = init;
 
-        app.use(logger('dev'));
-        app.use(bodyParser.urlencoded({ extended: true }));
-        app.use(bodyParser.json());
-        app.use(function setCabecalhosResponse(req, res, next) {
-            res.setHeader('Access-Control-Allow-Origin', '*');
-            res.setHeader('Access-Control-Allow-Methods', 'GET, POST');
-            res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type, Authorization');
-            next();
-        });
-
-    };
-})();
+function init(app) {
+    app.use(logger('dev'));
+    app.use(bodyParser.urlencoded({ extended: true }));
+    app.use(bodyParser.json());
+    app.use(function setCabecalhosResponse(req, res, next) {
+        res.setHeader('Access-Control-Allow-Origin', '*');
+        res.setHeader('Access-Control-Allow-Methods', 'GET, POST');
+        res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type, Authorization');
+        next();
+    });
+};

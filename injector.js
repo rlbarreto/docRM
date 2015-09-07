@@ -1,16 +1,10 @@
+/* global __dirname */
+/* global global */
 /**
  * Created by rafael on 27/08/15.
  */
-;
-(function () {
-    'use strict';
+global.rootRequire = function (name) {
+    return require(__dirname + '/' + name);
+};
 
-    let ioc = require('electrolyte');
-
-    ioc.loader('config', ioc.node('./config'));
-    ioc.loader('models', ioc.node('./models'));
-
-    exports = module.exports = ioc;
-
-
-})();
+exports = module.exports = {};

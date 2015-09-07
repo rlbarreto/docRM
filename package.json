@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "start": "nodemon --harmony index.js",
+    "test": "mocha --reporter spec -w --harmony $(find ./modules -name '*test.js') --watch-extensions js -c"
   },
   "repository": {
     "type": "git",
@@ -20,10 +21,11 @@
     "bluebird": "^2.9.34",
     "body-parser": "^1.13.3",
     "bootable": "^0.2.4",
-    "electrolyte": "0.0.6",
     "express": "^4.13.3",
     "glob": "^5.0.14",
+    "jsonwebtoken": "^5.0.5",
     "method-override": "^2.3.5",
+    "moment": "^2.10.6",
     "morgan": "^1.6.1",
     "passport": "^0.3.0",
     "passport-local": "^1.0.0",
@@ -37,6 +39,8 @@
   "devDependencies": {
     "chai": "^3.2.0",
     "chai-as-promised": "^5.1.0",
-    "mocha": "^2.2.5"
+    "mocha": "^2.2.5",
+    "mocha-traceur": "^2.1.0",
+    "rewire": "^2.3.4"
   }
 }
