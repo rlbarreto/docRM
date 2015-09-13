@@ -1,7 +1,5 @@
 'use strict';
 
-
-
 require('./injector');
 const bootable = require('bootable');
 const express = require('express');

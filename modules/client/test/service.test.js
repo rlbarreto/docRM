@@ -1,5 +1,3 @@
-/* global rootRequire */
-
 /**
  * Created by rafael on 02/09/15.
  */
@@ -29,7 +27,7 @@ describe('client service', function () {
 
 	before(function onBefore() {
 		//mock do model Client
-		
+
 		clientService.__set__('Client', Client);
 	});
 
@@ -193,7 +191,32 @@ describe('client service', function () {
 				return (result.name).should.be.equal('Viviane');
 			});
 		});
-	})
+	});
+
+	describe('disable client', () => {
+		let client;
+		let resultPromise;
+		beforeEach(function onBefore() {
+			client = {
+				id: '123456',
+				name: 'Viviane',
+				phone: '2112345678',
+				active: true
+			};
+
+			Client._oldClient = client;
+
+			resultPromise = clientService.disable(client);
+		});
+
+		it('result should no be null', () => resultPromise.should.eventually.not.be.null);
+
+		it('should have change ative property to false', function() {
+			return resultPromise.then(function(result) {
+				return (result.active).should.be.false;
+			});
+		})
+	});
 });
 
 function update(newClient, options) {

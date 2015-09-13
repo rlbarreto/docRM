@@ -7,18 +7,18 @@
 let Client = rootRequire('models/Client');
 
 exports = module.exports = {
+    disable: disable,
     findById: findById,
     list: list,
     update: update
 }
 
-function list(filtroParam, offset) {
-    let filtro = filtroParam || { where: {} };
-    filtro.offset = offset || 0;
-    filtro.limit = 10;
+function disable(client) {
+    if (!client || !client.id) {
+        throw new Error('O parametro cliente deve ser informado');
+    }
 
-    return Client.findAndCountAll(filtro)
-        .then(_listResult);
+    return update(client.id, { active: false });
 }
 
 function findById(id) {
@@ -33,6 +33,15 @@ function findById(id) {
         };
     });
 
+}
+
+function list(filtroParam, offset) {
+    let filtro = filtroParam || { where: {} };
+    filtro.offset = offset || 0;
+    filtro.limit = 10;
+
+    return Client.findAndCountAll(filtro)
+        .then(_listResult);
 }
 
 function update(id, newClient) {
