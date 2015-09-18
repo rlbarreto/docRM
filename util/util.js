@@ -1,4 +1,5 @@
 /*global rootRequire*/
+'use strict';
 
 module.exports.makeList = function (result, objConstructor) {
 	let obj = {

@@ -58,12 +58,12 @@ describe('client service', function () {
 				});
 
 			});
-			it('should have property clients', function () {
-				return resultPromise.should.eventually.have.property('clients');
+			it('should have property list', function () {
+				return resultPromise.should.eventually.have.property('list');
 			});
 			it('clients should have length equals total', function () {
 				return resultPromise.then(result => {
-					clients = result.clients;
+					clients = result.list;
 					return clients.should.have.length(total);
 				});
 
@@ -88,7 +88,7 @@ describe('client service', function () {
 			});
 
 			it('should have property clients', function () {
-				return resultPromise.should.eventually.have.property('clients');
+				return resultPromise.should.eventually.have.property('list');
 			});
 
 			it('should have property total', function () {
@@ -104,7 +104,7 @@ describe('client service', function () {
 
 			it('clients should be an array', () => {
 				return resultPromise.then(function (result) {
-					clients = result.clients;
+					clients = result.list;
 					return clients.should.have.length(total);
 				});
 			});

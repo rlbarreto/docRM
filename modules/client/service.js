@@ -5,13 +5,14 @@
 'use strict';
 
 let Client = rootRequire('models/Client');
+const utilFunctions = rootRequire('util/util');
 
 exports = module.exports = {
     disable: disable,
     findById: findById,
     list: list,
     update: update
-}
+};
 
 function disable(client) {
     if (!client || !client.id) {
@@ -52,13 +53,7 @@ function update(id, newClient) {
 }
 
 function _listResult(result) {
-    let clientList = {
-        total: result.count,
-        clients: []
-    };
-    result.rows.forEach(row => clientList.clients.push(_createClient));
-
-    return clientList;
+    return utilFunctions.makeList(result, _createClient);
 }
 
 function _createClient(result) {
