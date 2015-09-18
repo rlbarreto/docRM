@@ -18,16 +18,7 @@ function list(filterParam, offset) {
 }
 
 function findById(id) {
-    if (!id || typeof id !== 'string') {
-        throw new Error('Parâmetro id não informado');
-    }
-
-    return Service.findById(id).then(row => {
-        return {
-            found: !!row,
-            register: _createService(row)
-        };
-    });
+    return util.findByIdHelper(id, Service.findById, _createService);
 }
 
 function _listResult(result) {

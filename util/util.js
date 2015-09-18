@@ -11,3 +11,16 @@ module.exports.makeList = function (result, objConstructor) {
 
 	return obj;
 }; 
+
+module.exports.findByIdHelper = function (id, findFunction, constructorFunction) {
+	if (!id || typeof id !== 'string') {
+        throw new Error('Parâmetro id não informado');
+    }
+	
+	return findFunction(id).then(row => {
+        return {
+            found: !!row,
+            register: constructorFunction(row)
+        };
+    });
+}
