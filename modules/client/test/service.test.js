@@ -1,3 +1,4 @@
+/*global rootRequire*/
 /**
  * Created by rafael on 02/09/15.
  */
@@ -7,7 +8,6 @@ require('../../../injector');
 const chai = require('chai');
 const chaiAsPromised = require("chai-as-promised");
 const loader = rootRequire('config/load');
-const ioc = require('electrolyte');
 const Promise = require('bluebird');
 const moment = require('moment');
 const rewire = require('rewire');
@@ -16,6 +16,8 @@ const clientService = rewire('../service');
 chai.config.includeStack = true;
 chai.use(chaiAsPromised);
 chai.should();
+
+
 
 let Client = {
 	findAndCountAll: findAndCountAll,

@@ -12,17 +12,16 @@ const ClientModel = db.sequelize.define('cliente', {
     name: db.Sequelize.STRING,
     phone: db.Sequelize.STRING,
     celphone: db.Sequelize.STRING,
-    document: db.Sequelize.STRING,
+    document: { type: db.Sequelize.STRING, unique: 'ix1_document_unique'},
     address: db.Sequelize.STRING,
     zipcode: db.Sequelize.STRING,
     city: db.Sequelize.STRING,
     country: db.Sequelize.STRING,
-    birthday: db.Sequelize.DATE, 
-    active: { type: db.Sequelize.BOOLEAN, defaultValue: true }
+    birthday: db.Sequelize.DATE,
+    active: { type: db.Sequelize.BOOLEAN, defaultValue: true },
+    contractServices: db.Sequelize.JSONB
 }, {
         freezeTableName: true
     });
 
 exports = module.exports = ClientModel;
-
-
